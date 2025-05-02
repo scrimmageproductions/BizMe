@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizMe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BizMe</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for services (e.g., Landscaping)">
+            <button>Search</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Landscaping+Project" alt="Business Portfolio">
+            <div class="card-content">
+                <h2>GreenScape Solutions</h2>
+                <p class="tagline">Transforming Yards into Oases</p>
+                <p class="rating">⭐ 4.8 (50 reviews)</p>
+                <p><strong>Category:</strong> Landscaping</p>
+                <p><strong>Location:</strong> Austin, TX (10 miles)</p>
+                <p><strong>Starting Price:</strong> $1,000</p>
+                <button class="view-profile">View Profile</button>
+            </div>
+        </div>
+        <div class="swipe-buttons">
+            <button class="swipe-btn pass" onclick="swipe('pass')">X</button>
+            <button class="swipe-btn check" onclick="swipe('check')">✔</button>
+        </div>
+    </div>
+
+    <!-- Modal for Full Profile -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>GreenScape Solutions</h2>
+            <img src="https://via.placeholder.com/400x200?text=Portfolio" alt="Portfolio">
+            <p><strong>Bio:</strong> Family-owned landscaping business with 10+ years of experience creating stunning outdoor spaces.</p>
+            <p><strong>Certifications:</strong> Certified Landscape Professional (CLP), BBB Accredited</p>
+            <p><strong>Portfolio:</strong> 10 projects (view more on website)</p>
+            <p><strong>Contact:</strong> info@greenscape.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Swipe action simulation
+        function swipe(action) {
+            alert(`You ${action === 'check' ? 'saved' : 'passed'} this business!`);
+            // In a real app, this would load the next card
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('profileModal');
+        const viewProfileBtn = document.querySelector('.view-profile');
+        const closeBtn = document.querySelector('.close');
+
+        viewProfileBtn.onclick = () => {
+            modal.style.display = 'block';
+        };
+
+        closeBtn.onclick = () => {
+            modal.style.display = 'none';
+        };
+
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
